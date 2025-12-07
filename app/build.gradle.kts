@@ -36,6 +36,13 @@ android {
 
 
 dependencies {
+    // Jetpack Compose Material 2
+    implementation ("androidx.compose.material:material:1.5.0")
+
+// Jetpack Compose UI core
+    implementation ("androidx.compose.ui:ui:1.5.0")
+    implementation ("androidx.compose.ui:ui-tooling-preview:1.5.0")
+    debugImplementation ("androidx.compose.ui:ui-tooling:1.5.0")
     // Navigation for Compose
     implementation("androidx.navigation:navigation-compose:2.7.0")
 

@@ -1,56 +1,34 @@
 package com.example.securedoorlockapp.screens
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material.Button
+import androidx.compose.material.Text
+import androidx.compose.material.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
+
 
 @Composable
-fun AlertsScreen(navController: NavController) {
-
-    var alerts by remember {
-        mutableStateOf(
-            listOf(
-                "Unknown Face Detected – 09:58 AM",
-                "Unknown Face Detected – Yesterday"
-            )
-        )
-    }
-
-    Scaffold(
-        topBar = { TopAppBar(title = { Text("Alerts") }) }
-    ) { padding ->
-
-        LazyColumn(
-            modifier = Modifier
-                .padding(padding)
-                .padding(16.dp)
+fun AlertsScreen(onBack: () -> Unit) {
+    Surface(modifier = Modifier.fillMaxSize()) {
+        Column(
+            modifier = Modifier.fillMaxSize().padding(20.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Text("Alerts", modifier = Modifier.padding(bottom = 20.dp))
 
-            items(alerts) { alert ->
-                Card(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(vertical = 8.dp)
-                ) {
-                    Row(
-                        modifier = Modifier.padding(16.dp),
-                        horizontalArrangement = Arrangement.SpaceBetween
-                    ) {
-                        Text(alert)
-                        Button(onClick = {
-                            alerts = alerts - alert
-                        }) {
-                            Text("Review")
-                        }
-                    }
-                }
+            Text("• Door forced open attempt detected")
+            Text("• Wrong PIN entered 3 times")
+            Text("• System rebooted")
+
+            Spacer(modifier = Modifier.height(30.dp))
+
+            Button(onClick = onBack) {
+                Text("Back")
             }
         }
     }
 }
-
