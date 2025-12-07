@@ -3,7 +3,9 @@ package com.example.securedoorlockapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import com.example.securedoorlockapp.navigation.AppNavHost
+import androidx.compose.material3.Surface
+import androidx.navigation.compose.rememberNavController
+import com.example.securedoorlockapp.navigation.AppNav
 import com.example.securedoorlockapp.ui.theme.SecureDoorLockTheme
 
 class MainActivity : ComponentActivity() {
@@ -11,7 +13,10 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SecureDoorLockTheme {
-                AppNav()
+                Surface {
+                    val navController = rememberNavController()
+                    AppNav(navController)
+                }
             }
         }
     }
