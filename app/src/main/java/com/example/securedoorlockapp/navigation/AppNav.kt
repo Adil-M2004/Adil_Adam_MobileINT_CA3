@@ -7,7 +7,7 @@ import androidx.navigation.compose.rememberNavController
 import com.example.securedoorlockapp.screens.*
 
 @Composable
-fun AppNav() {
+fun AppNavHost() {
     val navController = rememberNavController()
 
     NavHost(
@@ -15,7 +15,7 @@ fun AppNav() {
         startDestination = "dashboard"
     ) {
         composable("dashboard") { DashboardScreen(navController) }
-        composable("access_logs") { AccessLogScreen(navController) }
+        composable("logs") { AccessLogScreen(navController) }
         composable("alerts") { AlertsScreen(navController) }
     }
 }
